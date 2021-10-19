@@ -8,7 +8,9 @@ Third year Data science project of Restaurant Revenue Prediction
     train_data.head()
 
 Descibe data
+
     train_data.describe()
 
+Data types of test data
 
     train_data.dtypes
