@@ -6,3 +6,7 @@ Third year Data science project of Restaurant Revenue Prediction
     import pandas as pd
     train_data = pd.read_csv('PATH OF TEST FILE IN YOUR MACHINE/test.csv',index_col=0)
     train_data.head()
+
+    train_data.describe()
+    
+    train_data.dtypes
