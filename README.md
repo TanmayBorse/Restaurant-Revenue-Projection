@@ -34,3 +34,19 @@ check how 'city affects' our revenue feature
     plt.xlabel("CITY")
     plt.ylabel("REVENUE")
     plt.show()
+
+Istanbul generating high revenue as compared to other cities and then ankara which is nearly 1/4th of istanbul
+
+Now lets check how 'city groups' affects our revenue feature
+
+    city_group_revenue_group = train_data["revenue"].groupby(train_data["City Group"])
+    agg_data = city_group_revenue_group.sum()
+
+    x_axis = agg_data.index
+    y_axis = agg_data
+    plt.bar(x_axis,y_axis)
+
+    plt.xlabel("City Group")
+    plt.ylabel("Revenue")
+    plt.show()
+ 
