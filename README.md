@@ -49,4 +49,30 @@ Now lets check how 'city groups' affects our revenue feature
     plt.xlabel("City Group")
     plt.ylabel("Revenue")
     plt.show()
- 
+
+visualizing remaining features by generating heat map , looking for correlation between them
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+
+    sns.set_theme() 
+    fig, ax = plt.subplots(figsize=(50,50)) 
+    correlation_matrix = train_data.corr() 
+    
+    sns.heatmap(correlation_matrix,annot=True,linewidths=.5,ax=ax)
+
+Now finding Variance inflation factor (VIF) of features
+# it is a measure of the amount of multicollinearity in a set of multiple regression variables.
+
+    from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+    # exluding revenue from VIF calculation because it's variable to be predicted
+
+    features=train_data.loc[:,"P1":"P37"]
+
+    vif_data = pd.DataFrame()
+
+    vif_data["features"] = features.columns
+    vif_data["vif"] = [variance_inflation_factor(features.values, i) for i in range(len(features.columns))]
+    vif_data = vif_data.sort_values(by=["vif"])
+    vif_data
